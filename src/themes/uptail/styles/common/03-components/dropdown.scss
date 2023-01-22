@@ -1,0 +1,11 @@
+@import "../00-settings/index.scss";
+@import "../01-tools/index.scss";
+@import "../02-generic/index.scss";
+
+.msc-l-dropdown {
+    @include vfi();
+}
+
+.msc-dropdown__select__disabled {
+    opacity: 0.5;
+}

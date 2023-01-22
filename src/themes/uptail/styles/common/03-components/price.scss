@@ -1,0 +1,21 @@
+@import "../00-settings/index.scss";
+@import "../01-tools/index.scss";
+@import "../02-generic/index.scss";
+
+.msc-price {
+    &__strikethrough {
+        margin-right: 5px;
+        text-decoration: line-through;
+    }
+
+    &.discount-value {
+        .msc-price__strikethrough {
+            display: block;
+            margin-right: 0;
+        }
+    }
+
+    .msc-price__salesagreementprice.msc-price__salesagreementprompt_expanded,.msc-price__salesagreementprompt_collapsed {
+        color: var(--msv-accent-brand-color);
+    }
+}
