@@ -142,8 +142,8 @@ $hero-links-secondary-padding: 12px 20px;
                 @include button-default();
                 @include primary-button(var(--msv-content-block-primary-btn-bg),
                 var(--msv-content-block-primary-btn-font-color),var(--msv-content-block-primary-btn-border));
-                margin: $hero-link-to-link-spacing / 2;
-                display: inline-block;
+                // margin: $hero-link-to-link-spacing / 2;
+                display: inline-block;                
             }
 
             .msc-cta__secondary {

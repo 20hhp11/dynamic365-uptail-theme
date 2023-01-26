@@ -42,8 +42,8 @@ $tile-heading-max-length: 30em;
 
         .msc-cta__primary {
             @include button-link(var(--msv-content-block-link-color));
-            @include font-content(var(--msv-font-weight-normal),
-            var(--msv-content-block-link-font-size), $msv-line-height-m);
+            @include font-content(var(--msv-font-weight-heavy),
+            var(--msv-content-block-link-font-size), $msv-line-height-s);           
         }
 
         .ms-content-block__details {

@@ -116,7 +116,7 @@ header {
         background-color: transparent;
         color: var(--msv-header-font-color);
 
-        @include font-content(var(--msv-font-weight-normal), var(--msv-header-font-size), $msv-line-height-m);
+        @include font-content(var(--msv-font-weight-heavy), var(--msv-header-font-size), $msv-line-height-s);
         justify-content: center;
 
         &:focus {
@@ -175,7 +175,7 @@ header {
     }
 
     .ms-header__account-info {
-        @include font-content(var(--msv-font-weight-normal), var(--msv-header-font-size), $msv-line-height-m);
+        @include font-content(var(--msv-font-weight-heavy), var(--msv-header-font-size), $msv-line-height-s);
         display: none;
         height: $header-height;
         justify-content: flex-end;
@@ -202,10 +202,14 @@ header {
         .ms-header__signin-button {
             background-color: var(--msv-header-bg);
             color: var(--msv-header-font-color);
-            font-weight: var(--msv-font-weight-normal);
+            font-weight: var(--msv-font-weight-heavy);
 
             &:focus {
                 outline-offset: -1px;
+            }
+
+            &:hover {
+                color: var(--msv-primary-hover);
             }
         }
 
@@ -581,10 +585,14 @@ header {
             &__icon {
                 align-items: center;
                 color: var(--msv-header-font-color);
-                font-weight: normal;
+                font-weight: var(--msv-font-weight-heavy);
 
                 &:focus {
                     outline-offset: -1px;
+                }
+
+                &:hover {
+                    color: var(--msv-primary-hover);
                 }
             }
         }

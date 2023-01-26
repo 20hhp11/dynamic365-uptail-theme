@@ -2,8 +2,8 @@
 @import "../common/00-settings/font.scss";
 @import "../common/00-settings/responsive-breakpoints.scss";
 
-$homepage-hero-title-font-size: 64px;
-$homepage-hero-title-line-height: 1.2;
+$homepage-hero-title-font-size: 36px;
+$homepage-hero-title-line-height: 1.29;
 $hero-content-shadow: 0 0.3px 0.9px rgba(0, 0, 0, 0.108), 0 1.6px 3.6px rgba(0, 0, 0, 0.132);
 
 :root {
@@ -15,7 +15,7 @@ $hero-content-shadow: 0 0.3px 0.9px rgba(0, 0, 0, 0.108), 0 1.6px 3.6px rgba(0, 
     --msv-hero-heading-size: #{$homepage-hero-title-font-size};
 
     //Body
-    --msv-hero-body-size: #{$msv-font-size-m};
+    --msv-hero-body-size: #{$msv-font-size-l};
 
     //Cta
     --msv-hero-cta-color: var(--msv-accent-brand-color);
@@ -34,7 +34,7 @@ $hero-content-shadow: 0 0.3px 0.9px rgba(0, 0, 0, 0.108), 0 1.6px 3.6px rgba(0, 
         top: 0;
 
         .ms-content-block__title {
-            @include fabrikam-font(var(--msv-font-weight-normal),
+            @include fabrikam-font(var(--msv-font-weight-heavy),
             var(--msv-hero-heading-size) ,$homepage-hero-title-line-height, none, $msv-font-cinzel);
             color: var(--msv-hero-textheme-dark);
         }
@@ -47,7 +47,7 @@ $hero-content-shadow: 0 0.3px 0.9px rgba(0, 0, 0, 0.108), 0 1.6px 3.6px rgba(0, 
         .msc-cta__primary {
             background-color: var(--msv-hero-cta-color);
             font-size: var(--msv-body-font-size-l);
-            line-height: var(--msv-body-line-height-l);
+            line-height: var(--msv-body-line-height-l);                     
         }
 
         .msc-cta__secondary {

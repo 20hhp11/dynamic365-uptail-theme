@@ -9,10 +9,10 @@ $footer-ms-footer-padding-xl: 48px 0;
 $footer-ms-footer-margin-left-mobile: 0;
 $footer-category-max-width: 200px;
 $footer-category-padding-bottom: 48px;
-$footer-item-padding-desktop: 5px 0;
+$footer-item-padding-desktop: 10px 0;
 $footer-item-padding-right-mobile: 28px;
 $footer-heading-title-line-height: 24px;
-$footer-heading-title-margin-bottom: 0.5rem;
+$footer-heading-title-margin-bottom: 1rem;
 $footer-list-item-icon-left: 10px;
 $footer-list-item-icon-number: 3;
 $footer-list-item-icon-top: 40px;
@@ -97,7 +97,7 @@ footer {
         &__heading__title {
             color: var(--msv-footer-heading-font-color);
             font-size: var(--msv-footer-heading-font-size);
-            font-weight: var(--msv-font-weight-bold);
+            font-weight: var(--msv-font-weight-semi-bold);
             line-height: $msv-line-height-l;
             margin-bottom: $footer-heading-title-margin-bottom;
         }
@@ -105,6 +105,7 @@ footer {
         &__link {
             @include vfi();
             display: inline-flex;
+            text-decoration: none;
 
             @include image($footer-placeholder-image-width);
 
@@ -113,11 +114,16 @@ footer {
             }
 
             div, &__text {
+                opacity: 0.58;
                 color: var(--msv-footer-link-font-color);
                 font-size: var(--msv-footer-link-font-size);
-                font-weight: var(--msv-font-weight-normal);
-                line-height: $msv-line-height-m;
-            }
+                font-weight: var(--msv-font-weight-semi-bold);
+                line-height: var(--msv-line-height-xl);
+
+                &:hover {
+                    opacity: 1; 
+                }
+            }            
         }
 
         & > * {

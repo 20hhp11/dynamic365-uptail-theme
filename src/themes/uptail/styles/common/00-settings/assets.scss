@@ -1,6 +1,7 @@
 $msv-icon-font-family: "Font Awesome 5 Free";
 $msv-solid-icon-weight: 900;
 $msv-outline-icon-weight: 400;
+$msv-semi-solid-icon-weight: 600;
 $msv-CommentSolid: "\f27a";
 $msv-ChevronDown: "\f078";
 $msv-ChevronUp: "\f077";
@@ -109,6 +110,24 @@ $msv-solid-icon-weight: 900;
     font-display: swap;
     src: url("#{$msv-font-path}/fa-solid-900.woff2") format("woff2"),
         url("#{$msv-font-path}/fa-solid-900.woff") format("woff");
+}
+
+@font-face {
+    font-family: 'SoDo Sans';
+    font-style: normal;
+    font-weight: $msv-outline-icon-weight;
+    font-display: swap;
+    src: url("#{$msv-font-path}/SoDoSans-Regular.woff2") format("woff2"),
+        url("#{$msv-font-path}/SoDoSans-Regular.woff") format("woff");
+}
+
+@font-face {
+    font-family: 'SoDo Sans';
+    font-style: normal;
+    font-weight: $msv-semi-solid-icon-weight;
+    font-display: swap;
+    src: url("#{$msv-font-path}/SoDoSans-SemiBold.woff2") format("woff2"),
+        url("#{$msv-font-path}/SoDoSans-SemiBold.woff") format("woff");
 }
 
 @mixin msv-icon($icon-weight: $msv-solid-icon-weight) {

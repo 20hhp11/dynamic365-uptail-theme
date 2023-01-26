@@ -3,8 +3,8 @@
 @import "../01-tools/mixins";
 
 $msv-btn-min-width: 160px;
-$msv-btn-side-padding: 20px;
-$msv-btn-vertical-padding: 12px;
+$msv-btn-side-padding: 16px;
+$msv-btn-vertical-padding: 7px;
 
 :root {
     // Background
@@ -28,7 +28,7 @@ $color: var(--msv-font-secondary-color), $border-color: var(--msv-accent-brand-c
     border: 1px solid $border-color;
     color: $color;
     padding: $msv-btn-vertical-padding $msv-btn-side-padding;
-    min-width: $msv-btn-min-width;
+    // min-width: $msv-btn-min-width;
 
     &:hover,
     &:focus {
@@ -71,12 +71,12 @@ $color: var(--msv-font-primary-color), $border-color: var(--msv-accent-brand-col
 
 @mixin button-default() {
     @include vfi();
-    @include font-content-l();
+    @include font-content-m(var(--msv-font-weight-heavy));
     cursor: pointer;
-    padding: 12px 20px;
-    height: 48px;
-    min-width: 160px;
+    padding: 12px 20px;  
+    border-radius: 50px;    
     text-align: center;
+    text-decoration: none;
 }
 
 @mixin button-icon {

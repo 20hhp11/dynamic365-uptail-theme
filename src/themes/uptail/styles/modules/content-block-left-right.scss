@@ -50,7 +50,7 @@ $feature-content-mobile-margin-top: 21px;
         .msc-cta__primary {
             @include button-default();
             @include primary-button(var(--msv-content-block-primary-btn-bg),
-            var(--msv-content-block-primary-btn-font-color), var(--msv-content-block-primary-btn-border));
+            var(--msv-content-block-primary-btn-font-color), var(--msv-content-block-primary-btn-border));        
         }
 
         .msc-cta__secondary {
