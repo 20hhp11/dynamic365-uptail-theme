@@ -63,6 +63,7 @@ header {
     padding-left: $header-container-spacing-mobile;
     padding-right: $header-container-spacing-mobile;
     padding-top: $heading-padding-top;
+    box-shadow: 0 1px 3px #d0d0d0, 0 0px 0px #D1D1D1, 0 0 2px #000000;
 
     &.ms-header-open {
         height: $header-height-collapsible-open;
