@@ -9,6 +9,7 @@ $footer-ms-footer-padding-xl: 48px 0;
 $footer-ms-footer-margin-left-mobile: 0;
 $footer-category-max-width: 200px;
 $footer-category-padding-bottom: 48px;
+$footer-category-padding-side: 30px;
 $footer-item-padding-desktop: 10px 0;
 $footer-item-padding-right-mobile: 28px;
 $footer-heading-title-line-height: 24px;
@@ -39,6 +40,7 @@ $footer-placeholder-image-width: 24px;
 
 footer {
     background-color: var(--msv-footer-bg);
+    box-shadow: 0 1px 5px #ffffff, 0 0px 5px #f0f0f0, 0 0 2px #000000;
 
     .ms-footer {
         &__list {
@@ -127,7 +129,7 @@ footer {
         }
 
         & > * {
-            justify-content: space-between;
+            justify-content: flex-start;
             margin-left: auto;
             margin-right: auto;
             padding: $footer-ms-footer-padding-xl;
@@ -135,6 +137,12 @@ footer {
             > * {
                 max-width: $footer-category-max-width;
                 padding-bottom: $footer-category-padding-bottom;
+                margin-left: $footer-category-padding-side;
+                margin-right: $footer-category-padding-side;
+
+                &:nth-child(2) {
+                    display: none;
+                }
 
                 &:nth-child(4) {
                     .ms-footer__list {
@@ -148,6 +156,7 @@ footer {
                     }
 
                     .ms-footer__list-item:nth-child(1) {
+
                         position: absolute;
                         width: 100%;
                     }
