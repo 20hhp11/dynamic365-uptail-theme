@@ -48,7 +48,7 @@ export const SearchResultModal = (props: ISearchResultModalProps): ISearchResult
         modal: modalNode(props),
         modalHeader: modalHeaderNode(props),
         modalFooter: modalFooterNode(props),
-        modalBody: <ModalBody className='msc-review-modal-body' />,
+        modalBody: <ModalBody className='msc-review-modal-body' />
     };
 };
 

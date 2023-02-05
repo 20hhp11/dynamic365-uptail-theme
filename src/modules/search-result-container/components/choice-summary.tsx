@@ -46,7 +46,7 @@ export default class ChoiceSummary extends React.PureComponent<IChoiceSummaryPro
         return selectedChoices.map((selectedRefiner: ProductRefinerValue) => {
             return {
                 key: this._getKeyForRefinerValue(selectedRefiner),
-                value: selectedRefiner,
+                value: selectedRefiner
             } as IRefinerMap;
         });
     }
@@ -176,7 +176,7 @@ export default class ChoiceSummary extends React.PureComponent<IChoiceSummaryPro
                 clearAll,
                 itemClicked: target,
                 choiceClicked: selectedRefiner,
-                nextItemToFocus: target.nextSibling as HTMLElement,
+                nextItemToFocus: target.nextSibling as HTMLElement
             });
         }
     };

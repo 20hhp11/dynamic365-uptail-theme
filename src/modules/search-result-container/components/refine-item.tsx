@@ -64,7 +64,7 @@ export default class RefineItem extends React.Component<IRefineItemProps, IRefin
         super(props);
         this._onClick = this._onClick.bind(this);
         this.state = {
-            isChecked: !!this.props.selectedRefinementCriterion,
+            isChecked: !!this.props.selectedRefinementCriterion
         };
         this.anchorType = React.createRef();
         this.payLoad = getPayloadObject('click', this.props.telemetryContent!, '');
@@ -195,8 +195,8 @@ export default class RefineItem extends React.Component<IRefineItemProps, IRefin
                 value: text,
                 dimensionType,
                 colorHexCode: productRefinerValue.SwatchColorHexCode,
-                imageUrl: productRefinerValue.SwatchImageUrl,
-            },
+                imageUrl: productRefinerValue.SwatchImageUrl
+            }
         ];
 
         return (
@@ -217,7 +217,7 @@ export default class RefineItem extends React.Component<IRefineItemProps, IRefin
             return urlBuilder({
                 parentProductRefinerHierarchy,
                 productRefinerValue,
-                isSelecting: !selectedRefinementCriterion,
+                isSelecting: !selectedRefinementCriterion
             });
         }
 
@@ -232,7 +232,7 @@ export default class RefineItem extends React.Component<IRefineItemProps, IRefin
             this.props.onToggle({
                 parentProductRefinerHierarchy,
                 productRefinerValue,
-                isSelecting: !selectedRefinementCriterion,
+                isSelecting: !selectedRefinementCriterion
             });
 
             setTimeout(() => {

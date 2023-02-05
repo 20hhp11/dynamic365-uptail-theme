@@ -31,7 +31,7 @@ export const FeatureSearchResultItem: React.FC<IFeatureSearchResultItem> = ({
     imageSettings,
     resources,
     telemetryContent,
-    recommendation,
+    recommendation
 }) => {
     if (product === null) {
         return null;
@@ -88,12 +88,12 @@ function renderProductPlacementImage(
     }
     const img: IImageData = {
         src: imageUrl,
-        altText: altText ? altText : '',
+        altText: altText ? altText : ''
     };
     const imageProps = {
         gridSettings,
         imageSettings,
-        fallBackSrc: fallbackImage,
+        fallBackSrc: fallbackImage
     };
     return <Image {...img} {...imageProps} loadFailureBehavior='empty' requestContext={context} />;
 }

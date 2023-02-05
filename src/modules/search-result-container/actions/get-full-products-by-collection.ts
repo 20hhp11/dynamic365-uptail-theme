@@ -10,14 +10,14 @@ import {
     IAction,
     IActionContext,
     IActionInput,
-    ICreateActionContext,
+    ICreateActionContext
 } from '@msdyn365-commerce/core';
 import {
     AsyncResult,
     ChannelInventoryConfiguration,
     ProductRefinerValue,
     ProductSearchCriteria,
-    ProductSearchResult,
+    ProductSearchResult
 } from '@msdyn365-commerce/retail-proxy';
 import { searchByCriteriaAsync } from '@msdyn365-commerce/retail-proxy/dist/DataActions/ProductsDataActions.g';
 import { getInventoryConfigurationAsync } from '@msdyn365-commerce/retail-proxy/dist/DataActions/StoreOperationsDataActions.g';
@@ -72,7 +72,7 @@ export enum ProductListInventoryFilteringOptions {
     /**
      * No filtering selected.
      */
-    Default = 'default',
+    Default = 'default'
 }
 
 /**
@@ -168,7 +168,7 @@ export async function returnProducts(
     ) {
         return {
             products: productSearchResultsWithImages,
-            count: metadataCount ?? defaultProductCount,
+            count: metadataCount ?? defaultProductCount
         };
     }
 
@@ -204,7 +204,7 @@ export async function returnProducts(
         channelInventoryConfigurationId: inventoryConfiguration ? inventoryConfiguration.InventoryProductAttributeRecordId : undefined,
         inventoryAwareSortableAttributeId: inventoryConfiguration
             ? inventoryConfiguration.ProductAvailabilitySortableAttributeRecordId
-            : undefined,
+            : undefined
     };
 }
 
@@ -250,7 +250,7 @@ async function action(input: GetFullProductsByCollectionInput, context: IActionC
         if (!isSortAttributeExist) {
             input.queryResultSettings.Sorting.Columns.push({
                 ColumnName: sortColumnName,
-                IsDescending: true,
+                IsDescending: true
             });
         }
     }
@@ -261,7 +261,7 @@ async function action(input: GetFullProductsByCollectionInput, context: IActionC
             promise = searchByCriteriaAsync(
                 {
                     callerContext: context,
-                    queryResultSettings: input.queryResultSettings,
+                    queryResultSettings: input.queryResultSettings
                 },
                 searchCriteriaInput
             );
@@ -273,7 +273,7 @@ async function action(input: GetFullProductsByCollectionInput, context: IActionC
         promise = searchByCriteriaAsync(
             {
                 callerContext: context,
-                queryResultSettings: input.queryResultSettings,
+                queryResultSettings: input.queryResultSettings
             },
             searchCriteriaInput
         );
@@ -298,7 +298,7 @@ async function action(input: GetFullProductsByCollectionInput, context: IActionC
             promise = searchByCriteriaAsync(
                 {
                     callerContext: context,
-                    queryResultSettings: input.queryResultSettings,
+                    queryResultSettings: input.queryResultSettings
                 },
                 searchCriteriaInput
             );
@@ -314,7 +314,7 @@ async function action(input: GetFullProductsByCollectionInput, context: IActionC
 export const actionDataAction = createObservableDataAction({
     id: '@msdyn365-commerce-modules/search-result-container/get-full-products-by-collection',
     action: action as IAction<IFullProductsSearchResultsWithCount>,
-    input: createInput,
+    input: createInput
 });
 
 export default actionDataAction;

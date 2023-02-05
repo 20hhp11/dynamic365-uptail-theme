@@ -21,7 +21,7 @@ const compressedRefinerKeys = [
     'RefinerRecordId',
     'RefinerSourceValue',
     'RightValueBoundString',
-    'UnitText',
+    'UnitText'
 ];
 
 /**

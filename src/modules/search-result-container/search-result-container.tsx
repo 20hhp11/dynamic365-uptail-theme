@@ -7,7 +7,7 @@
 import {
     CategoryHierarchy as CategoryHierarchyData,
     IProductRefinerHierarchy,
-    IProductsDimensionsAvailabilities,
+    IProductsDimensionsAvailabilities
 } from '@msdyn365-commerce/commerce-entities';
 import MsDyn365, { getCatalogId, ICoreContext } from '@msdyn365-commerce/core';
 import { format, ProductPrice, ProductRefinerValue, SortColumn, TextValueTranslation } from '@msdyn365-commerce/retail-proxy';
@@ -19,7 +19,7 @@ import {
     getDimensionAvailabilitiesForProductSearchResultAction,
     getPriceForProductSearchResult,
     IDimensionsApp,
-    PriceForProductSearchResultInput,
+    PriceForProductSearchResultInput
 } from '@msdyn365-commerce-modules/retail-actions';
 import {
     getTelemetryObject,
@@ -31,7 +31,7 @@ import {
     ITelemetryContent,
     LabeledDropdown,
     UncontrolledPagination,
-    VariantType,
+    VariantType
 } from '@msdyn365-commerce-modules/utilities';
 import classnames from 'classnames';
 import { computed, observable, reaction, transaction } from 'mobx';
@@ -48,7 +48,7 @@ import {
     parseQueryParam,
     ProductListInventoryFilteringOptions,
     RefinersByCollectionInput,
-    sortOptions,
+    sortOptions
 } from './actions';
 import { hydrateRefinersFromUrl } from './actions/url-utils';
 import {
@@ -65,7 +65,7 @@ import {
     ProductSearchResultItems,
     SearchResultModal,
     Separator,
-    Title,
+    Title
 } from './components';
 import ChoiceSummary from './components/choice-summary';
 import RefineSubmenu from './components/refine-submenu';
@@ -164,7 +164,7 @@ export default class SearchResultContainer extends React.PureComponent<
         { key: sortOptions.sortByOptionRatingDesc, value: this.props.resources.sortByOptionRatingDesc },
         { key: sortOptions.sortByOptionBestSelling, value: this.props.resources.sortByOptionBestSelling },
         { key: sortOptions.sortByOptionNewScore, value: this.props.resources.sortByOptionNewScore },
-        { key: sortOptions.sortByOptionTrendingScore, value: this.props.resources.sortByOptionTrendingScore },
+        { key: sortOptions.sortByOptionTrendingScore, value: this.props.resources.sortByOptionTrendingScore }
     ];
 
     private readonly _refineItemCommonProps: IRefineItemCommonProps;
@@ -211,10 +211,10 @@ export default class SearchResultContainer extends React.PureComponent<
         this.state = {
             sortingState: {
                 pending: false,
-                selectedSortByOption: this.sortByDropdownOptions[0],
+                selectedSortByOption: this.sortByDropdownOptions[0]
             },
             modalIsOpen: false,
-            refiners: [],
+            refiners: []
         };
         const { placeholderTextMax, minLabel, maxLabel, rangeNameFormat } = this.props.resources;
 
@@ -230,7 +230,7 @@ export default class SearchResultContainer extends React.PureComponent<
             maxLabel,
             rangeNameFormat,
             validationErrorNaN,
-            validationErrorRange,
+            validationErrorRange
         };
         this.telemetryContent = getTelemetryObject(
             this.props.context.request.telemetryPageName!,
@@ -256,7 +256,7 @@ export default class SearchResultContainer extends React.PureComponent<
                 return [
                     listPageState.activeFilters?.length,
                     listPageState.currentPageNumber,
-                    ArrayExtensions.hasElements(listPageState.sortingCritera?.Columns),
+                    ArrayExtensions.hasElements(listPageState.sortingCritera?.Columns)
                 ];
             },
             async () => {
@@ -267,10 +267,10 @@ export default class SearchResultContainer extends React.PureComponent<
                     {
                         Paging: {
                             Top: this.props.config.itemsPerPage,
-                            Skip: Math.max(newListPageState.pageSize * (newListPageState.currentPageNumber ?? 0), 0),
+                            Skip: Math.max(newListPageState.pageSize * (newListPageState.currentPageNumber ?? 0), 0)
                         },
                         count: true,
-                        Sorting: newListPageState.sortingCritera ?? {},
+                        Sorting: newListPageState.sortingCritera ?? {}
                     },
                     newListPageState.activeFilters ?? [],
                     // eslint-disable-next-line @typescript-eslint/prefer-nullish-coalescing -- RecordId is string. Check required.
@@ -281,7 +281,7 @@ export default class SearchResultContainer extends React.PureComponent<
                         ? this.props.context.request.query.q
                         : JSON.stringify({
                               ProductId: this.props.context.request.query?.productId,
-                              Recommendation: this.props.context.request.query?.recommendation,
+                              Recommendation: this.props.context.request.query?.recommendation
                           }),
                     // eslint-disable-next-line @typescript-eslint/no-unnecessary-condition -- Required check.
                     !!this.props?.config?.includeAttributes,
@@ -313,10 +313,10 @@ export default class SearchResultContainer extends React.PureComponent<
                                 Skip: Math.max(
                                     newListPageState.pageSize * (newListPageState.currentPageNumber ?? this.defaultPageNumber),
                                     this.defaultPageNumber
-                                ),
+                                )
                             },
                             count: true,
-                            Sorting: newListPageState.sortingCritera ?? {},
+                            Sorting: newListPageState.sortingCritera ?? {}
                         },
                         newListPageState.activeFilters ?? [],
                         // eslint-disable-next-line @typescript-eslint/prefer-nullish-coalescing -- RecordId is string. Check required.
@@ -369,7 +369,7 @@ export default class SearchResultContainer extends React.PureComponent<
         const {
             config: { imageSettings, className },
             resources,
-            data: { listPageState, products: productCollection, featureProduct },
+            data: { listPageState, products: productCollection, featureProduct }
         } = this.props;
 
         if (!this.isListPageStateUpdated && listPageState.result && productCollection.result) {
@@ -406,7 +406,7 @@ export default class SearchResultContainer extends React.PureComponent<
             className: classnames('ms-search-result-container', className),
             SearchResultContainer: {
                 moduleProps: this.props,
-                className: classnames('ms-search-result-container', className),
+                className: classnames('ms-search-result-container', className)
             },
             sortByOptions: this.props.data.listPageState.result?.totalProductCount !== 0 ? this._getSortingDropDown() : null,
             pagination: this._getPagination(),
@@ -430,7 +430,7 @@ export default class SearchResultContainer extends React.PureComponent<
             errorMessage: errorText && <ErrorMessage text={errorText} />,
             FeatureSearchContainer: { className: 'ms-feature-search-result' },
             similarLookProduct: searchProduct ? featureComponent : null,
-            productPrices: this.productPrices,
+            productPrices: this.productPrices
         };
         return this.props.renderView(searchResultContainerViewProps) as React.ReactElement;
     }
@@ -511,11 +511,11 @@ export default class SearchResultContainer extends React.PureComponent<
         return SearchResultModal({
             resources: {
                 modalCloseButtonText: resources.modalCloseButtonText,
-                modalTitle: resources.modalTitle,
+                modalTitle: resources.modalTitle
             },
             isOpen: this.state.modalIsOpen,
             returnRef: this._modalToggleRef,
-            onModalToggle: this._toggleModal,
+            onModalToggle: this._toggleModal
         });
     };
 
@@ -559,8 +559,8 @@ export default class SearchResultContainer extends React.PureComponent<
             title: {
                 titlePrefix,
                 titleText,
-                titleCount,
-            },
+                titleCount
+            }
         };
     };
 
@@ -584,7 +584,7 @@ export default class SearchResultContainer extends React.PureComponent<
         return {
             CategoryHierarchyContainer: { tag: 'nav', className: 'ms-search-result-container__category-hierarchy' },
             categoryHierarchyList: categoryLinks,
-            categoryHierarchySeparator: categoryLinkSeparator,
+            categoryHierarchySeparator: categoryLinkSeparator
         };
     };
 
@@ -612,7 +612,7 @@ export default class SearchResultContainer extends React.PureComponent<
         );
         return {
             SortingContainer: { className: 'ms-search-result-container__Sort-by-category' },
-            sortByDropDown: dropdown,
+            sortByDropDown: dropdown
         };
     };
 
@@ -700,7 +700,7 @@ export default class SearchResultContainer extends React.PureComponent<
         return {
             RefineMenuContainer: { className: 'ms-search-result-container__refine-menu' },
             RefinerSectionContainer: { className: 'ms-search-result-container__refiner-section' },
-            refiners: subMenus,
+            refiners: subMenus
         };
     };
 
@@ -752,7 +752,7 @@ export default class SearchResultContainer extends React.PureComponent<
      */
     private readonly _getProducts = (): JSX.Element => {
         const {
-            config: { imageSettings, allowBackNavigation: shouldAllowBackNavigation },
+            config: { imageSettings, allowBackNavigation: shouldAllowBackNavigation }
         } = this.props;
         const { resources } = this.props;
         // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment, @typescript-eslint/no-unsafe-member-access -- Reading config value.
@@ -789,7 +789,7 @@ export default class SearchResultContainer extends React.PureComponent<
 
     private readonly _updateSortByDropdown = (notification: ILabeledDropdownOnChangeNotification): void => {
         const {
-            context: { request: requestContext, actionContext },
+            context: { request: requestContext, actionContext }
         } = this.props;
 
         if (!requestContext || !actionContext || !this.props.data.listPageState.result) {
@@ -814,7 +814,7 @@ export default class SearchResultContainer extends React.PureComponent<
         transaction(() => {
             this.props.data.listPageState.result!.currentPageNumber = 0;
             this.props.data.listPageState.result!.sortingCritera = {
-                Columns: [this._getSortColumnFromSelectedOption(notification.selectedOption)],
+                Columns: [this._getSortColumnFromSelectedOption(notification.selectedOption)]
             };
         });
     };
@@ -900,7 +900,7 @@ export default class SearchResultContainer extends React.PureComponent<
 
     private readonly _onUpdateRefiners = (itemToggleNotification: IRefineItemToggleNotification): void => {
         const {
-            context: { request: requestContext, actionContext },
+            context: { request: requestContext, actionContext }
         } = this.props;
 
         if (!requestContext || !actionContext || !this.props.data.listPageState.result) {
@@ -1007,7 +1007,7 @@ export default class SearchResultContainer extends React.PureComponent<
 
     private _toggleModal(): void {
         this.setState({
-            modalIsOpen: !this.state.modalIsOpen,
+            modalIsOpen: !this.state.modalIsOpen
         });
     }
 

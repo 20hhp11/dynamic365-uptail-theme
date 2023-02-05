@@ -73,7 +73,7 @@ class RefineSubmenu extends React.Component<IRefineSubmenuProps, IRefineSubmenuS
         // }
 
         this.state = {
-            expanded: isExpanded,
+            expanded: isExpanded
         };
     }
 
@@ -135,7 +135,7 @@ class RefineSubmenu extends React.Component<IRefineSubmenuProps, IRefineSubmenuS
             singleProductCountAriaLabel,
             refineItemAriaLabel,
             refineItemsAriaLabel,
-            isMobile,
+            isMobile
         } = this.props;
         const isSingleSelect =
             productRefinerHierarchy.RefinerTypeValue === RefinerType.SingleSelect &&
@@ -207,7 +207,7 @@ class RefineSubmenu extends React.Component<IRefineSubmenuProps, IRefineSubmenuS
             selectedRefinerValues,
             context,
             minValueSliderThumbAriaLabel,
-            maxValueSliderThumbAriaLabel,
+            maxValueSliderThumbAriaLabel
         } = this.props;
         const submenuClassNamePrefix = 'ms-refine-submenu__item list-group-item refine-submenu__item';
         const refinerValuesList = productRefinerHierarchy.Values || [];
@@ -256,7 +256,7 @@ class RefineSubmenu extends React.Component<IRefineSubmenuProps, IRefineSubmenuS
 
     private _onToggleSubmenu(): void {
         this.setState((prevState) => ({
-            expanded: !prevState.expanded,
+            expanded: !prevState.expanded
         }));
     }
 }

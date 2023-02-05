@@ -13,7 +13,7 @@ import {
     IRefineMenuViewProps,
     ISearchResultContainerViewProps,
     ISortByViewProps,
-    ITitleViewProps,
+    ITitleViewProps
 } from './search-result-container';
 
 const SearchResultContainerView: React.FC<ISearchResultContainerViewProps> = (props) => {
@@ -35,7 +35,7 @@ const SearchResultContainerView: React.FC<ISearchResultContainerViewProps> = (pr
         RefineAndProductSectionContainer,
         errorMessage,
         FeatureSearchContainer,
-        similarLookProduct,
+        similarLookProduct
     } = props;
     const isRecoSearchPage = props.context.actionContext.requestContext.query?.recommendation;
     if (isMobile) {

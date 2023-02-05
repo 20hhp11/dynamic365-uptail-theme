@@ -60,10 +60,10 @@ export const ProductSearchResultItems: React.FC<IProductSearchResultItems> = ({
     productComparisonButton,
     channelInventoryConfigurationId,
     isPriceMinMaxEnabled,
-    productsDimensionAvailabilities,
+    productsDimensionAvailabilities
 }) => {
     const priceResources: IPriceComponentResources = {
-        priceRangeSeparator: resources.priceRangeSeparator,
+        priceRangeSeparator: resources.priceRangeSeparator
     };
     return (
         <ul className='list-unstyled'>

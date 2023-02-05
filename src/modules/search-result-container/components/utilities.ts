@@ -57,7 +57,7 @@ export enum ProductRefinerValueDataTypeValue {
      * import { AttributeDataType } from `@msdyn365-commerce/retail-proxy`;
      * ```
      */
-    Boolean = 6,
+    Boolean = 6
 }
 
 /**
@@ -87,7 +87,7 @@ export enum ProductRefinerTypeValue {
      * import { RefinerType } from `@msdyn365-commerce/retail-proxy`;
      * ```
      */
-    Multi = 1,
+    Multi = 1
 }
 
 /**
@@ -147,7 +147,7 @@ export enum ProductRefinerSource {
      * import { ProductRefinerSource } from `@msdyn365-commerce/retail-proxy`;
      * ```
      */
-    Rating = 4,
+    Rating = 4
 }
 
 /**
@@ -211,7 +211,7 @@ export function getUpdatedRefinementCriteria(
                         selectedCriterion.LeftValueBoundString,
                     RightValueBoundString:
                         (itemToggleNotification.rangeEnd !== undefined && `${itemToggleNotification.rangeEnd}`) ||
-                        selectedCriterion.RightValueBoundString,
+                        selectedCriterion.RightValueBoundString
                 };
                 updatedRefinementCriteria.push(next);
             } // Else the item is being de-selected, so omit it from the refinement criteria
@@ -229,7 +229,7 @@ export function getUpdatedRefinementCriteria(
                 itemToggleNotification.productRefinerValue.LeftValueBoundString,
             RightValueBoundString:
                 (itemToggleNotification.rangeEnd !== undefined && `${itemToggleNotification.rangeEnd}`) ||
-                itemToggleNotification.productRefinerValue.RightValueBoundString,
+                itemToggleNotification.productRefinerValue.RightValueBoundString
         };
         updatedRefinementCriteria.push(next);
 
@@ -275,7 +275,7 @@ export function formatPrice(
             style: 'currency',
             currencyDisplay: 'symbol',
             currency,
-            minimumFractionDigits: 0,
+            minimumFractionDigits: 0
         }).format(priceAmount);
     } catch (error) {
         result = `${priceAmount} ${currency}`;

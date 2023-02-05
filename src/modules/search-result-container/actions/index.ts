@@ -6,7 +6,7 @@
 /* eslint-disable no-duplicate-imports */
 import getCollectionProducts, {
     GetFullProductsByCollectionInput,
-    ProductListInventoryFilteringOptions,
+    ProductListInventoryFilteringOptions
 } from './get-full-products-by-collection';
 import type { IFullProductsSearchResultsWithCount } from './get-full-products-by-collection';
 import getMappedSearchConfiguration, { MappedSearchInput, sortOptions } from './get-mapped-search-configuration';
@@ -26,5 +26,5 @@ export {
     MappedSearchInput,
     ProductListInventoryFilteringOptions,
     RefinersByCollectionInput,
-    sortOptions,
+    sortOptions
 };

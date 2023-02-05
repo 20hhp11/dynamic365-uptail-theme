@@ -76,8 +76,8 @@ async function action(input: InventoryInStockRefinerValueInput, context: IAction
         {
             Context: {
                 ChannelId: input.apiSettings.channelId,
-                CatalogId: input.catalogId,
-            },
+                CatalogId: input.catalogId
+            }
         },
         input.queryResultSettings,
         context
@@ -98,7 +98,7 @@ async function action(input: InventoryInStockRefinerValueInput, context: IAction
  */
 export const actionDataAction = createObservableDataAction({
     id: '@msdyn365-commerce-modules/search-result-container/get-inventory-refiners',
-    action: action as IAction<IProductRefinerHierarchy>,
+    action: action as IAction<IProductRefinerHierarchy>
 });
 
 export default actionDataAction;

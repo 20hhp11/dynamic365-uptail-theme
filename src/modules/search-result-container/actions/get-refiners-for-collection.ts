@@ -16,7 +16,7 @@ import { getProductRefinerHierarchy } from './get-product-refiner-hierarchy';
  */
 enum DefaultValues {
     defaultCategoryIdValue = 0,
-    defaultProductIdValue = 0,
+    defaultProductIdValue = 0
 }
 
 /**
@@ -62,9 +62,9 @@ async function action(input: RefinersByCollectionInput, ctx: IActionContext): Pr
                     CategoryIds: [input.category || DefaultValues.defaultCategoryIdValue],
                     Context: {
                         ChannelId: input.apiSettings.channelId,
-                        CatalogId: input.catalogId,
+                        CatalogId: input.catalogId
                     },
-                    Refinement: input.isUpdateRefinerPanel ? input.refiners : [],
+                    Refinement: input.isUpdateRefinerPanel ? input.refiners : []
                 },
                 input.queryResultSettings,
                 ctx
@@ -78,9 +78,9 @@ async function action(input: RefinersByCollectionInput, ctx: IActionContext): Pr
                     SearchCondition: input.searchText,
                     Context: {
                         ChannelId: input.apiSettings.channelId,
-                        CatalogId: input.catalogId,
+                        CatalogId: input.catalogId
                     },
-                    Refinement: input.isUpdateRefinerPanel ? input.refiners : [],
+                    Refinement: input.isUpdateRefinerPanel ? input.refiners : []
                 },
                 input.queryResultSettings,
                 ctx
@@ -99,7 +99,7 @@ async function action(input: RefinersByCollectionInput, ctx: IActionContext): Pr
                 const searchCriteriaInput: ProductSearchCriteria = {};
                 searchCriteriaInput.Context = {
                     ChannelId: input.apiSettings.channelId,
-                    CatalogId: input.catalogId,
+                    CatalogId: input.catalogId
                 };
                 searchCriteriaInput.Refinement = input.isUpdateRefinerPanel ? input.refiners : [];
                 searchCriteriaInput.RecommendationListId = searchObject.Recommendation;
@@ -117,7 +117,7 @@ async function action(input: RefinersByCollectionInput, ctx: IActionContext): Pr
 export const actionDataAction = createObservableDataAction({
     id: '@msdyn365-commerce-modules/search-result-container/get-refiners-for-collection',
     action: <IAction<IProductRefinerHierarchy[]>>action,
-    input: createInput,
+    input: createInput
 });
 
 export default actionDataAction;

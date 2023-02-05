@@ -13,7 +13,7 @@ import {
     IAny,
     ICommerceApiSettings,
     ICreateActionContext,
-    IGeneric,
+    IGeneric
 } from '@msdyn365-commerce/core';
 import { SortColumn } from '@msdyn365-commerce/retail-proxy';
 import { getSearchConfigurationAsync } from '@msdyn365-commerce/retail-proxy/dist/DataActions/StoreOperationsDataActions.g';
@@ -41,7 +41,7 @@ export const sortOptions = {
     sortByOptionPriceDesc: 'Price-Desc',
     sortByOptionBestSelling: 'BestSelling',
     sortByOptionNewScore: 'NewScore',
-    sortByOptionTrendingScore: 'TrendingScore',
+    sortByOptionTrendingScore: 'TrendingScore'
 };
 
 /**
@@ -102,7 +102,7 @@ export async function getMappedSearchConfiguration(input: MappedSearchInput, ctx
                 if (key) {
                     return {
                         key,
-                        sortColumn,
+                        sortColumn
                     };
                 }
                 return undefined;
@@ -118,7 +118,7 @@ export const createInput = (inputData: ICreateActionContext<IGeneric<IAny>>): IA
 export const getMappedSearchConfigurationDataAction = createObservableDataAction({
     id: '@msdyn365-commerce-modules/search-result-container/get-mapped-search-configuration',
     action: <IAction<MappedSearchConfiguration[]>>getMappedSearchConfiguration,
-    input: createInput,
+    input: createInput
 });
 
 export default getMappedSearchConfigurationDataAction;

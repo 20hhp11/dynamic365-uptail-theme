@@ -112,7 +112,7 @@ export default class RangeRefineItem extends React.Component<IRangeRefineItemPro
             minValue,
             maxValue,
             labels,
-            sliderThumbs,
+            sliderThumbs
         };
     }
 
@@ -191,13 +191,13 @@ export default class RangeRefineItem extends React.Component<IRangeRefineItemPro
             {
                 labelId: `${sliderId}_start`,
                 labelString: `${minPrice}`,
-                labelPositioning: 'start',
+                labelPositioning: 'start'
             },
             {
                 labelId: `${sliderId}_end`,
                 labelString: `${maxPrice}`,
-                labelPositioning: 'end',
-            },
+                labelPositioning: 'end'
+            }
         ];
     };
 
@@ -227,14 +227,14 @@ export default class RangeRefineItem extends React.Component<IRangeRefineItemPro
                 id: `${sliderId}${sliderKey}_slider_thumb_start`,
                 value: (selectedMin && Number(selectedMin)) || sliderThumbDefaultValue,
                 ariaLabel: `${this.props.minValueSliderThumbAriaLabel ?? ''} ${this.currencyCode}`,
-                ariaValueText: `${selectedMinPrice}`,
+                ariaValueText: `${selectedMinPrice}`
             },
             {
                 id: `${sliderId}${sliderKey}_slider_thumb_end`,
                 value: Number(selectedMax) || Number(maxPrice),
                 ariaLabel: `${this.props.maxValueSliderThumbAriaLabel ?? ''} ${this.currencyCode}`,
-                ariaValueText: `${selectedMaxPrice}`,
-            },
+                ariaValueText: `${selectedMaxPrice}`
+            }
         ];
     };
 
@@ -245,7 +245,7 @@ export default class RangeRefineItem extends React.Component<IRangeRefineItemPro
         const rangeAriaLabel = (refineItemCommonProps.rangeNameFormat || '{0}').replace('{0}', parentProductRefinerHierarchy.KeyName || '');
         const formAttrs = {
             'aria-label': rangeAriaLabel,
-            'aria-disabled': isDisabled,
+            'aria-disabled': isDisabled
         };
 
         // To enable price formatting of selected fields, this is the approach:
@@ -304,7 +304,7 @@ export default class RangeRefineItem extends React.Component<IRangeRefineItemPro
     private _renderSlider(): JSX.Element | undefined {
         const { isDisabled, sliderKey } = this.props;
         const ariaAttributes = {
-            'aria-disabled': isDisabled,
+            'aria-disabled': isDisabled
         };
 
         return (
@@ -343,7 +343,7 @@ export default class RangeRefineItem extends React.Component<IRangeRefineItemPro
         const touchedKey = `touched${inputType}`;
         this.setState({
             [selectedKey]: this._getInputWithoutFormatting(event.currentTarget.value),
-            [touchedKey]: true,
+            [touchedKey]: true
         });
     }
 
@@ -351,7 +351,7 @@ export default class RangeRefineItem extends React.Component<IRangeRefineItemPro
         const selectedMinValue = this._getInputWithoutFormatting(event.currentTarget.value);
         this.setState({
             selectedMin: selectedMinValue,
-            minTouched: false,
+            minTouched: false
         });
         const minInput = Number(selectedMinValue);
         const { onToggle, parentProductRefinerHierarchy, productRefinerValue, refineItemCommonProps, selectedRefinementCriterion } =
@@ -372,7 +372,7 @@ export default class RangeRefineItem extends React.Component<IRangeRefineItemPro
                 productRefinerValue,
                 isSelecting: true,
                 rangeStart: minInput,
-                rangeEnd: maxNum,
+                rangeEnd: maxNum
             });
             return true;
         }
@@ -385,7 +385,7 @@ export default class RangeRefineItem extends React.Component<IRangeRefineItemPro
         const selectedMaxValue = this._getInputWithoutFormatting(event.currentTarget.value);
         this.setState({
             selectedMax: selectedMaxValue,
-            maxTouched: false,
+            maxTouched: false
         });
         const maxInput = Number(selectedMaxValue);
         const { onToggle, parentProductRefinerHierarchy, productRefinerValue, refineItemCommonProps, selectedRefinementCriterion } =
@@ -407,7 +407,7 @@ export default class RangeRefineItem extends React.Component<IRangeRefineItemPro
                     productRefinerValue,
                     isSelecting: true,
                     rangeStart: minNum,
-                    rangeEnd: maxInput,
+                    rangeEnd: maxInput
                 });
             } else {
                 this._focus('Max');
@@ -448,7 +448,7 @@ export default class RangeRefineItem extends React.Component<IRangeRefineItemPro
         if (min > max) {
             this.setState({
                 validationErrorMin: refineItemCommonProps.validationErrorRange,
-                validationErrorMax: refineItemCommonProps.validationErrorRange,
+                validationErrorMax: refineItemCommonProps.validationErrorRange
             });
             return false;
         }
@@ -488,7 +488,7 @@ export default class RangeRefineItem extends React.Component<IRangeRefineItemPro
                     productRefinerValue,
                     isSelecting: true,
                     rangeStart: sliderChangeNotification.firstThumbValue,
-                    rangeEnd: sliderChangeNotification.secondThumbValue,
+                    rangeEnd: sliderChangeNotification.secondThumbValue
                 });
 
                 this._focusOnSliderThumb(sliderChangeNotification);
@@ -505,7 +505,7 @@ export default class RangeRefineItem extends React.Component<IRangeRefineItemPro
                 productRefinerValue,
                 isSelecting: true,
                 rangeStart: sliderChangeNotification.firstThumbValue,
-                rangeEnd: sliderChangeNotification.secondThumbValue,
+                rangeEnd: sliderChangeNotification.secondThumbValue
             });
 
             this._focusOnSliderThumb(sliderChangeNotification);

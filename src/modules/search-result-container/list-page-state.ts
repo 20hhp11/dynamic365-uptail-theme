@@ -13,7 +13,7 @@ import {
     IActionInput,
     IAny,
     ICreateActionContext,
-    IGeneric,
+    IGeneric
 } from '@msdyn365-commerce/core';
 import { ProductPrice, ProductRefinerValue, ProductSearchResult, SimpleProduct, SortingInfo } from '@msdyn365-commerce/retail-proxy';
 import { observable } from 'mobx';
@@ -73,5 +73,5 @@ export const createListPageInput = (inputData: ICreateActionContext<IGeneric<IAn
  */
 export default createObservableDataAction<ListPageState>({
     action: <IAction<ListPageState>>listPageStateAction,
-    input: createListPageInput,
+    input: createListPageInput
 });

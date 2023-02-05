@@ -88,7 +88,7 @@ export class BaseCollectionInput implements IActionInput {
     public getCacheKey = () => {
         const queryResultSettings = {
             ...this.queryResultSettings.Paging,
-            ...toJS(this.queryResultSettings.Sorting),
+            ...toJS(this.queryResultSettings.Sorting)
         };
 
         const cacheKey = buildCacheKey(
@@ -181,7 +181,7 @@ export const createBaseCollectionInput = (
         if (args.requestContext.query.productId) {
             searchText = JSON.stringify({
                 ProductId: args.requestContext.query.productId,
-                Recommendation: args.requestContext.query.recommendation,
+                Recommendation: args.requestContext.query.recommendation
             });
         } else {
             searchText = JSON.stringify({ Recommendation: args.requestContext.query.recommendation });
