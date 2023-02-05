@@ -16,12 +16,12 @@ import { IHelloworldConfig, IHelloworldProps } from '../helloworld.props.autogen
 
 const mockData: IHelloworldData = {
     actionResponse: {
-        text: 'Sample Response Data'
-    }
+        text: 'Sample Response Data',
+    },
 };
 
 const mockConfig: IHelloworldConfig = {
-    title: 'helloworld'
+    title: 'helloworld',
 };
 
 const mockActions = {};
