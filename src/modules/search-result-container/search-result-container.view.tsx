@@ -28,6 +28,7 @@ const SearchResultContainerView: React.FC<ISearchResultContainerViewProps> = (pr
         modalToggle,
         searchResultModal,
         TitleViewProps,
+        menuBar,
         refineMenu,
         categoryHierarchy,
         sortByOptions,
@@ -62,7 +63,7 @@ const SearchResultContainerView: React.FC<ISearchResultContainerViewProps> = (pr
                 {TitleViewProps && renderTitleCount(TitleViewProps)}
             </Node>
             <Node {...RefineAndProductSectionContainer}>
-                {refineMenu && renderRefiner(refineMenu)}
+                <Node className='ms-header__desktop-view'>{_renderReactFragment(menuBar)}</Node>
                 <Node {...ProductSectionContainer}>
                     {TitleViewProps && renderTitle(TitleViewProps)}
                     {choiceSummary}
@@ -78,6 +79,18 @@ const SearchResultContainerView: React.FC<ISearchResultContainerViewProps> = (pr
         </Module>
     );
 };
+
+function _renderReactFragment(items: React.ReactNode[]): JSX.Element | null {
+    return (
+        <>
+            {items && items.length > 0
+                ? items.map((slot: React.ReactNode, index: number) => {
+                      return <React.Fragment key={index}>{slot}</React.Fragment>;
+                  })
+                : null}
+        </>
+    );
+}
 
 const createSearchResultModal = (
     modalProps: ISearchResultModalViewProps,

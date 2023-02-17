@@ -84,6 +84,7 @@ export interface ISearchResultContainerProps<T> extends Msdyn365.IModule<T> {
     resources: ISearchResultContainerResources;
     config: ISearchResultContainerConfig;
     slots: {
+        menuBar: React.ReactNode[];
         quickview: React.ReactNode[];
         productComparisonButton: React.ReactNode[];
     };

@@ -94,6 +94,7 @@ export interface ISearchResultContainerViewProps extends ISearchResultContainerP
     FeatureSearchContainer: INodeProps;
     similarLookProduct?: React.ReactNode;
     productPrices?: ProductPrice[];
+    menuBar: React.ReactNode[];
 }
 
 export interface ITitleViewProps {
@@ -397,6 +398,7 @@ export default class SearchResultContainer extends React.PureComponent<
             />
         );
 
+        const menuBarSlot = this._getSlot('menuBar');
         const searchResultContainerViewProps = {
             ...this.props,
             products: productsComponent,
@@ -430,9 +432,21 @@ export default class SearchResultContainer extends React.PureComponent<
             errorMessage: errorText && <ErrorMessage text={errorText} />,
             FeatureSearchContainer: { className: 'ms-feature-search-result' },
             similarLookProduct: searchProduct ? featureComponent : null,
-            productPrices: this.productPrices
+            productPrices: this.productPrices,
+            menuBar: ArrayExtensions.hasElements(menuBarSlot) ? menuBarSlot : []
         };
         return this.props.renderView(searchResultContainerViewProps) as React.ReactElement;
+    }
+
+    /**
+     * Get the slot.
+     * @param slotName - Name of the slot.
+     * @returns The slot.
+     */
+    private _getSlot(slotName: string): React.ReactNode[] | null {
+        debugger;
+        const { slots } = this.props;
+        return (slots && slots[slotName] && slots[slotName].length && slots[slotName]) || null;
     }
 
     /**

@@ -306,6 +306,18 @@
 		}
 	},
 	"slots": {
+		"menuBar": {
+            "friendlyName": "Navigation menu",
+            "description": "Slot for Navigation menu in search result container handling",
+            "allowedTypes": [
+                "navigation-menu"
+            ],
+            "allowedCategories": [
+                "header_menuBar"
+            ],
+            "min": 0,
+            "max": 1
+        },
 		"quickview": {
 			"friendlyName": "Quick view button",
 			"description": "This the slot for the quick view button on product card",

@@ -28,7 +28,6 @@ const headerView: React.FC<IHeaderViewProps> = props => {
                     {_renderReactFragment(props.siteOptions)}
                 </Node>
                 {_renderCollapseMenu(props)}
-                <Node className='ms-header__desktop-view'>{_renderReactFragment(props.menuBar)}</Node>
             </Node>
         </Module>
     );
