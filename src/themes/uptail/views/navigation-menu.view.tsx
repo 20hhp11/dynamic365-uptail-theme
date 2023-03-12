@@ -303,15 +303,15 @@ export class NavigationMenuView extends React.PureComponent<INavigationMenuViewP
 
     private _renderSubMenu(subMenus?: IMenuItemData[], activeMenu?: number, IsSubMenu?: boolean): JSX.Element | null {
         const { isMobileView, ListItem } = this.props;
-        const enableMultiSupportMenu = this.props.config.enableMultilevelMenu || false;
+        const enableMultiSupportMenu = false; //this.props.config.enableMultilevelMenu || false;
         const subMenuLevel = 3;
         const multiLevelSupportedMenu = this.props.config.menuLevelSupport || subMenuLevel;
 
         // Const isParentMenu:boolean= false;
-        if (activeMenu && this.state.activeMenu !== activeMenu) {
-            this.props.context.telemetry.error('Navigation Active menu content is empty, module wont render.');
-            return null;
-        }
+        // if (activeMenu && this.state.activeMenu !== activeMenu) {
+        //     this.props.context.telemetry.error('Navigation Active menu content is empty, module wont render.');
+        //     return null;
+        // }
 
         if (!subMenus || subMenus.length === 0) {
             this.props.context.telemetry.error('Navigation Submenu content is empty, module wont render.');
@@ -560,12 +560,12 @@ export class NavigationMenuView extends React.PureComponent<INavigationMenuViewP
      * @param event -HTML event.
      */
     private readonly _handleClickOutside = (event: MouseEvent) => {
-        if (this.menuNode.current && !this.menuNode.current.contains(event.target as Node)) {
-            this.setState({
-                activeMenu: undefined,
-                categoryImage: null
-            });
-        }
+        // if (this.menuNode.current && !this.menuNode.current.contains(event.target as Node)) {
+        //     this.setState({
+        //         activeMenu: undefined,
+        //         categoryImage: null
+        //     });
+        // }
     };
 
     /**
@@ -573,9 +573,9 @@ export class NavigationMenuView extends React.PureComponent<INavigationMenuViewP
      * @param event -HTML event.
      */
     private readonly _handleFocusOutside = (event: FocusEvent) => {
-        if (this.menuNode.current && !this.menuNode.current.contains(event.relatedTarget as Node)) {
-            this._closeSubmenu();
-        }
+        // if (this.menuNode.current && !this.menuNode.current.contains(event.relatedTarget as Node)) {
+        //     this._closeSubmenu();
+        // }
     };
 
     /**

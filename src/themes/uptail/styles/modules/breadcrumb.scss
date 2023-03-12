@@ -5,14 +5,15 @@
 //style presets
 :root {
     --msv-breadcrumb-item-font-color: var(--msv-font-primary-color);
-    --msv-breadcrumb-item-font-size: var(--msv-body-font-size-s);
+    --msv-breadcrumb-item-font-size: var(--msv-body-font-size-m);
 }
 
-.ms-breadcrumb {
-    padding-bottom: 36px;
+.ms-breadcrumb {    
+    padding: 10px 0;
 
     .ms-breadcrumb_list {
         color: var(--msv-breadcrumb-item-font-color);
+        opacity: 0.58;
         float: left;
         list-style: none;
         padding: 0;
@@ -32,7 +33,7 @@
     }
 
     .ms-breadcrumb_item {
-        color: var(--msv-breadcrumb-item-font-color);
+        color: var(--msv-breadcrumb-item-font-color);        
         float: left;
         font-size: var(--msv-breadcrumb-item-font-size);
         position: relative;
@@ -51,14 +52,15 @@
             vertical-align: middle;
         }
 
-        .ms-breadcrumb_link {
-            color: var(--msv-breadcrumb-item-font-color);
+        .ms-breadcrumb_link {            
+            color: var(--msv-breadcrumb-item-font-color);            
             font-size: var(--msv-breadcrumb-item-font-size);
-            text-decoration: underline;
+            text-decoration: none;
         }
 
         &.breadcrumb_item-current {
             .ms-breadcrumb_link {
+                font-weight: var(--msv-font-weight-heavy);
                 text-decoration: none;
             }
         }

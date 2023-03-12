@@ -23,6 +23,7 @@ const SearchResultContainerView: React.FC<ISearchResultContainerViewProps> = (pr
         pagination,
         ProductsContainer,
         ProductSectionContainer,
+        ProductCategorySectionContainer,
         choiceSummary,
         isMobile,
         modalToggle,
@@ -43,7 +44,7 @@ const SearchResultContainerView: React.FC<ISearchResultContainerViewProps> = (pr
         return (
             <Module {...SearchResultContainer}>
                 {renderCategoryHierarchy(categoryHierarchy)}
-                {renderTitle(TitleViewProps)}
+                {renderTitleWithCount(TitleViewProps)}
                 {choiceSummary}
                 {modalToggle}
                 {createSearchResultModal(searchResultModal, refineMenu, sortByOptions, isRecoSearchPage)}
@@ -58,15 +59,15 @@ const SearchResultContainerView: React.FC<ISearchResultContainerViewProps> = (pr
     }
     return (
         <Module {...SearchResultContainer}>
-            <Node {...CategoryNavContainer}>
-                {categoryHierarchy && renderCategoryHierarchy(categoryHierarchy)}
-                {TitleViewProps && renderTitleCount(TitleViewProps)}
-            </Node>
             <Node {...RefineAndProductSectionContainer}>
-                <Node className='ms-header__desktop-view'>{_renderReactFragment(menuBar)}</Node>
+                <Node {...ProductCategorySectionContainer}>
+                    <Node className='ms-header__desktop-view'>{_renderReactFragment(menuBar)}</Node>
+                </Node>
                 <Node {...ProductSectionContainer}>
-                    {TitleViewProps && renderTitle(TitleViewProps)}
+                    {TitleViewProps && renderTitleWithCount(TitleViewProps)}
+                    <Node {...CategoryNavContainer}>{categoryHierarchy && renderCategoryHierarchy(categoryHierarchy)}</Node>
                     {choiceSummary}
+                    {refineMenu && renderRefiner(refineMenu)}
                     {sortByOptions && !isRecoSearchPage && renderSort(sortByOptions)}
                     <Node {...FeatureSearchContainer}>{similarLookProduct}</Node>
                     <Node {...ProductsContainer}>
@@ -161,7 +162,7 @@ const renderCategoryHierarchy = (props: ICategoryHierarchyViewProps): JSX.Elemen
     return null;
 };
 
-const renderTitle = (props: ITitleViewProps): JSX.Element | null => {
+const renderTitleWithCount = (props: ITitleViewProps): JSX.Element | null => {
     const { title, TitleContainer } = props;
     if (title) {
         return (
@@ -169,19 +170,8 @@ const renderTitle = (props: ITitleViewProps): JSX.Element | null => {
                 <h2>
                     {title.titlePrefix}
                     {title.titleText}
+                    {title.titleCount}
                 </h2>
-            </Node>
-        );
-    }
-    return null;
-};
-
-const renderTitleCount = (props: ITitleViewProps): JSX.Element | null => {
-    const { title, TitleContainer } = props;
-    if (title) {
-        return (
-            <Node {...TitleContainer}>
-                <h5>{title.titleCount}</h5>
             </Node>
         );
     }

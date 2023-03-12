@@ -11,7 +11,7 @@ $search-result-container-nav-margin-top: 32px;
 $search-result-container-nav-title-margin: 0;
 $search-result-container-refine-product-margin-bottom: 80px;
 $search-result-container-refiner-section-padding-right: 40px;
-$search-result-container-refiner-section-width: 25%;
+$search-result-container-refiner-section-width: 100%;
 $search-result-container-refiner-button-submenu-height: 64px;
 $search-result-container-refiner-button-submenu-padding-left: 0;
 $search-result-container-refiner-button-submenu-padding-right: 0;
@@ -42,9 +42,6 @@ $search-result-container-refiner-slider-thumb-before-top: 0;
 $search-result-container-refiner-slider-labels-item-margin-top: 25px;
 $search-result-container-refiner-slider-labels-item-padding-bottom: 20px;
 $search-result-container-pagination-padding-left: 0;
-$search-result-container-product-section-width: 75%;
-$search-result-container-sort-by-category-padding-left: 8px;
-$search-result-container-sort-by-category-right: 0;
 $search-result-container-sort-by-category-dropdown-label-margin-right: 8px;
 $search-result-container-products-margin-bottom: 80px;
 $search-result-container-products-margin-top: 32px;
@@ -62,7 +59,6 @@ $search-result-container-margin-top-margin-top-mobile: 24px;
 $search-result-container-pagination-margin-bottom-mobile: 16px;
 $search-result-container-products-margin-bottom-mobile: 40px;
 $search-result-container-choice-summary-padding-inline-start: 0;
-$search-result-container-choice-summary-margin-left: 8px;
 $search-result-container-choice-summary-margin-top: 20px;
 $search-result-container-choice-summary-margin-bottom: 16px;
 $search-result-container-choice-summary-background-color: $msv-gray-200;
@@ -94,6 +90,7 @@ $product-search-result_link__item-outline-offset:2px;
 $search-result-prev-next-padding: 0 4px;
 $search-result-container-feature-placeholder-img-width: 315px;
 $search-result-list-item-width: 314px;
+$search-result-title-font-size: 28px;
 //style presets
 :root {
     --msv-search-result-font-color: var(--msv-font-primary-color);
@@ -147,9 +144,13 @@ $search-result-list-item-width: 314px;
 
         .ms-search-result__collection-title-count {
             @include font-content(var(--msv-font-weight-normal),
-            var(--msv-search-result-font-size), $msv-line-height-m);
+            $search-result-title-font-size, $msv-line-height-m);
         }
     }
+}
+
+.ms-search-result-container__product-category-section {
+    padding-left: 130px;
 }
 
 .ms-search-result-container__refine-product-section {
@@ -178,6 +179,7 @@ $search-result-list-item-width: 314px;
         padding-left: $search-result-container-refiner-button-submenu-padding-left;
         padding-right: $search-result-container-refiner-button-submenu-padding-right;
         width: 100%;
+        outline: none !important;
     }
 
     .ms-refine-submenu.list-group {
@@ -186,10 +188,9 @@ $search-result-list-item-width: 314px;
         flex-direction: column;
         margin-bottom: $search-result-container-refiner-submenu-list-group-margin-bottom;
         padding-left: $search-result-container-refiner-submenu-list-group-margin-left;
-
-        &:first-child {
-            border-top: 1px solid var(--msv-refiner-border);
-        }
+        width: 250px;
+        padding-bottom: 10px;        
+        border-top: 1px solid var(--msv-refiner-border);
 
         .ms-refine-submenu-item {
             padding-left: $search-result-container-refiner-submenu-list-group-item-padding-left;
@@ -347,8 +348,14 @@ $search-result-list-item-width: 314px;
 }
 
 // product section
+
+.ms-search-result-container{
+    padding-top: 25px;
+}
+
 .ms-search-result-container__product-section {
-    width: $search-result-container-product-section-width;
+    padding-top: 10px;    
+    padding-left: 120px;
 
     .ms-search-result-wrapper-title-choice-summary {
         flex: 0 0 75%;
@@ -363,16 +370,18 @@ $search-result-list-item-width: 314px;
 
             .ms-search-result__collection-title-prefix,
             .ms-search-result__collection-title-text {
-                @include font-content(var(--msv-font-weight-normal),
-                var(--msv-search-result-heading-font-size), $msv-line-height-xl);
+                @include font-content(var(--msv-font-weight-bold),
+                $search-result-title-font-size, $msv-line-height-xl);
                 color: var(--msv-search-result-heading-font-color);
+                opacity: 0.87;
             }
 
             .ms-search-result__collection-title-count {
-                @include font-content(var(--msv-font-weight-normal),
-                var(--msv-search-result-font-size), $msv-line-height-m);
+                @include font-content(var(--msv-font-weight-bold),
+                $search-result-title-font-size, $msv-line-height-m);
                 color: var(--msv-search-result-font-color);
                 display: inline-block;
+                opacity: 0.87;
             }
         }
     }
@@ -388,8 +397,7 @@ $search-result-list-item-width: 314px;
 
 .msc-choice-summary {
     list-style-type: none;
-    padding-inline-start: $search-result-container-choice-summary-padding-inline-start;
-    margin-left: $search-result-container-choice-summary-margin-left;
+    padding-inline-start: $search-result-container-choice-summary-padding-inline-start;    
     margin-top: $search-result-container-choice-summary-margin-top;
 
     .msc-choice-summary__list {
@@ -413,18 +421,20 @@ $search-result-list-item-width: 314px;
         padding-left: $search-result-container-choice-summary-padding-left;
         outline-offset: $search-result-container-choice-summary-outline-offset;
         position: relative;
+        text-decoration: none;
+        outline: none !important;
     }
 
     .msc-choice-summary__clear-all {
         @include vfi();
-        @include font-content(var(--msv-font-weight-normal), var(--msv-refiner-values-font-size), $msv-line-height-m);
+        @include font-content(var(--msv-font-weight-normal), var(--msv-refiner-values-font-size), $msv-line-height-xl);
         display: inline-block;
-        background-color: $search-result-container-choice-summary-clear-all-background-color;
         color: var(--msv-refiner-values-font-color);
         border: $search-result-container-choice-summary-clear-all-border;
-        text-decoration: underline;
+        text-decoration: none;
         outline-offset: $search-result-container-choice-summary-clear-all-outline-offset;
         position: relative;
+        outline: none !important;
     }
 
     .msc-choice-summary__glyph {
@@ -444,12 +454,9 @@ $search-result-list-item-width: 314px;
 }
 
 .ms-search-result-container__Sort-by-category {
-    @include font-content(var(--msv-font-weight-light), var(--msv-search-result-sort-font-size), $msv-line-height-m);
-    padding-left: $search-result-container-sort-by-category-padding-left;
-    position: absolute;
-    right: $search-result-container-sort-by-category-right;
-    bottom: 0;
-    padding-top: 12px;
+    @include font-content(var(--msv-font-weight-light), var(--msv-search-result-sort-font-size), $msv-line-height-m);    
+    padding-top: 25px;
+    text-align: left;
 
     .msc-l-dropdown__label {
         color: var(--msv-search-result-sort-font-color);
@@ -465,6 +472,7 @@ $search-result-list-item-width: 314px;
         color: var(--msv-search-result-sort-font-color);
         vertical-align: middle;
         outline-offset: 2px;
+        outline: none !important;
     }
 }
 
@@ -803,15 +811,24 @@ ul.msc-pagination {
         .ms-search-result__collection-title-text {
             /* stylelint-enable no-descending-specificity -- Auto-suppressed. Please fix if possible. */
 
-            @include font-content(var(--msv-font-weight-normal), var(--msv-search-result-heading-font-size), $msv-line-height-xl);
+            @include font-content(var(--msv-font-weight-bold), $search-result-title-font-size, $msv-line-height-xl);
             color: var(--msv-search-result-heading-font-color);
+            opacity: 0.87;
         }
 
         /* stylelint-disable-next-line no-descending-specificity -- Auto-suppressed. Please fix if possible. */
         .ms-search-result__collection-title-count {
-            @include font-content(var(--msv-font-weight-normal), var(--msv-search-result-font-size), $msv-line-height-m);
+            @include font-content(var(--msv-font-weight-bold), $search-result-title-font-size, $msv-line-height-m);
             color: var(--msv-search-result-font-color);
+            opacity: 0.87;
         }
+    }
+
+    &__refine-menu {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: space-between;
     }
 
     .msc-button {

@@ -82,6 +82,7 @@ export interface ISearchResultContainerViewProps extends ISearchResultContainerP
     pagination?: React.ReactNode;
     ProductsContainer: INodeProps;
     ProductSectionContainer: INodeProps;
+    ProductCategorySectionContainer: INodeProps;
     refineMenu: IRefineMenuViewProps;
     sortByOptions: ISortByViewProps;
     choiceSummary?: React.ReactNode;
@@ -413,6 +414,7 @@ export default class SearchResultContainer extends React.PureComponent<
             sortByOptions: this.props.data.listPageState.result?.totalProductCount !== 0 ? this._getSortingDropDown() : null,
             pagination: this._getPagination(),
             ProductsContainer: { className: 'ms-search-result-container__Products' },
+            ProductCategorySectionContainer: { className: 'ms-search-result-container__product-category-section' },
             ProductSectionContainer: { className: 'ms-search-result-container__product-section' },
             CategoryNavContainer: { className: 'ms-search-result-container__category-nav-section' },
             RefineAndProductSectionContainer: { className: 'ms-search-result-container__refine-product-section' },
@@ -444,7 +446,6 @@ export default class SearchResultContainer extends React.PureComponent<
      * @returns The slot.
      */
     private _getSlot(slotName: string): React.ReactNode[] | null {
-        debugger;
         const { slots } = this.props;
         return (slots && slots[slotName] && slots[slotName].length && slots[slotName]) || null;
     }
@@ -534,7 +535,7 @@ export default class SearchResultContainer extends React.PureComponent<
     };
 
     private readonly _getCollectionTitle = (): ITitleViewProps => {
-        const { data, context, resources } = this.props;
+        const { data, context } = this.props;
 
         let collectionTitle: string | undefined = '';
         if (context && context.request && context.request.query && context.request.query.q) {
@@ -564,14 +565,14 @@ export default class SearchResultContainer extends React.PureComponent<
             productCountText = format(this.props.resources.numberOfProducts, 0);
         }
         const pageName = context.request.telemetryPageName ? `result-count-${context.request.telemetryPageName.toLowerCase()}` : '';
-        const titlePrefix = <Title className='ms-search-result__collection-title-prefix' text={resources.searchTextPrefix} />;
+        // const titlePrefix = <Title className='ms-search-result__collection-title-prefix' text={resources.searchTextPrefix} />;
         const titleText = collectionTitle && <Title className='ms-search-result__collection-title-text' text={collectionTitle} />;
         const titleCount = <Title className='ms-search-result__collection-title-count' text={productCountText} />;
 
         return {
             TitleContainer: { className: `ms-search-result-container__title ${pageName}` },
             title: {
-                titlePrefix,
+                // titlePrefix,
                 titleText,
                 titleCount
             }

@@ -107,7 +107,7 @@ footer {
         &__link {
             @include vfi();
             display: inline-flex;
-            text-decoration: none;
+            text-decoration: none !important;
 
             @include image($footer-placeholder-image-width);
 
@@ -139,10 +139,6 @@ footer {
                 padding-bottom: $footer-category-padding-bottom;
                 margin-left: $footer-category-padding-side;
                 margin-right: $footer-category-padding-side;
-
-                &:nth-child(2) {
-                    display: none;
-                }
 
                 &:nth-child(4) {
                     .ms-footer__list {

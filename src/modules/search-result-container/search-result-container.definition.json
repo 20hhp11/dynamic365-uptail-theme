@@ -162,11 +162,11 @@
 		},
 		"numberOfProducts": {
 			"comment": "String to define the number of products returned found for a search term",
-			"value": "{0} products"
+			"value": "({0})"
 		},
 		"oneProduct": {
 			"comment": "String to define the only one product being returned for search",
-			"value": "1 product"
+			"value": "(1)"
 		},
 		"categoryLinkAriaLabel": {
 			"comment": "Aria-Label text for links to other categories within the hierarchy",
